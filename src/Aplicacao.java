@@ -2,39 +2,16 @@
 public class Aplicacao {
 
 	public static void main(String[] args) {
+		Fila fila = new Fila();
 		
-		ListaEncadeada<Double> lista = new ListaEncadeada<>();
-		lista.adicionarFim((double) 20);
-		lista.adicionarFim((double) 19);
-		lista.adicionarFim((double) 21);
-		lista.adicionarFim((double) 18);
-		lista.adicionarFim((double) 23);
-		lista.adicionarFim((double) 10);
-		lista.adicionarFim((double) 10);
-		System.out.println("Tamanho da lista: "+ lista.getTamanho());
-		System.out.println("Primeiro: "+lista.getPrimeiro().getValor());
-		System.out.println("Ultimo: "+lista.getUltimo().getValor());
-		
-		System.out.println(lista.quantidadeElemento(10));
-		System.out.println();
-		lista.removerRepetidos(lista);
-		
-		// IMPRIMINDO LISTA
-		
-		for(int i = 0 ; i < lista.getTamanho() ; i++) {
-			System.out.println(lista.get(i).getValor());
-		}
+		fila.adicionar((double) 1);
+		fila.adicionar((double) 2);
+		fila.adicionar((double) 3);
+		System.out.println("Primeiro da fila: "+ fila.get());
+		fila.remover();
+		System.out.println("Primeiro da fila: "+ fila.get());
 		
 		
-		System.out.println();
-		
-		// IMPRIMINDO LISTA AO CONTRARIO
-		
-		for(int i = lista.getTamanho()-1 ; i >= 0 ; i--) {
-			System.out.println(lista.get(i).getValor());
-		}
-		
-		System.out.println();
 		
 	}
 
