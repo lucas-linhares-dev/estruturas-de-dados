@@ -62,7 +62,7 @@ public class ListaEncadeada<TIPO> {
 					this.primeiro = null;
 					this.ultimo = null;
 				}
-				if(atual == primeiro){
+				else if(atual == primeiro){
 					this.primeiro = atual.getProximo();
 				}
 				else if(atual == ultimo) {

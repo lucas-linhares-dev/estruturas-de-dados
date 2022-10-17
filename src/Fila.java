@@ -28,4 +28,8 @@ public class Fila<T> {
 		}
 		return novaFila;
 	}
+	
+	public void inverter() {
+		
+	}
 }

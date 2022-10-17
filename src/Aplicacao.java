@@ -7,10 +7,17 @@ public class Aplicacao {
 		pilha.adicionar(2.0);
 		pilha.adicionar(3.0);
 		pilha.adicionar(4.0);
+		pilha.adicionar(5.0);
+
+
+		Pilha pilha2 = pilha.clonar();
 		
 		pilha.remover();
+		pilha2.remover();
+		pilha2.remover();
 		
 		System.out.println(pilha.get());
+		System.out.println(pilha2.get());
 
 	}
 
