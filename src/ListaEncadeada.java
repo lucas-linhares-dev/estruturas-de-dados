@@ -40,6 +40,19 @@ public class ListaEncadeada<TIPO> {
 		tamanho++;
 	}
 	
+	public void adicionarInicio(Double valor) {
+		Elemento<TIPO> novoElemento = (Elemento<TIPO>) new Elemento<Double>(valor);
+		if(this.primeiro == null && this.ultimo == null){
+			this.primeiro = novoElemento;
+			this.ultimo = novoElemento;
+		}
+		else {
+			novoElemento.setProximo(this.primeiro);
+			this.primeiro = novoElemento;
+		}
+		tamanho++;
+	}
+	
 	public void remover(TIPO valor) {
 		Elemento<TIPO> atual = this.primeiro;
 		Elemento<TIPO> anterior = null;
