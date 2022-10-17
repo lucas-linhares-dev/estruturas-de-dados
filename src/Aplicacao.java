@@ -2,38 +2,21 @@
 public class Aplicacao {
 
 	public static void main(String[] args) {
-		Fila fila = new Fila();
+		Fila fila = new Fila<Double>();
 		
-		fila.adicionar((double) 1);
-		fila.adicionar((double) 2);
-		fila.adicionar((double) 3);
-		System.out.println("Primeiro da fila: "+ fila.get());
-		fila.remover();
-		System.out.println("Primeiro da fila: "+ fila.get());
+		fila.adicionar(2.0);
+		fila.adicionar(3.0);
+		fila.adicionar(4.0);
 		
+		Fila fila2 = fila.clonar();
 		
-		
+		System.out.println(fila.get());
+		fila2.remover();
+		fila2.remover();
+		fila2.adicionar(5.0);
+		fila2.remover();
+		System.out.println(fila2.get());
+
 	}
 
 }
-
-
-
-
-
-
-
-
-//REMOVENDO REPETIDOS
-		// for(int i = 0 ; i < lista.getTamanho() ; i++) {
-		//	double valorElemento = lista.get(i).getValor();
-		//	int qntdElemento = lista.quantidadeElemento(valorElemento);
-		//	System.out.println(qntdElemento);
-		//	if(qntdElemento > 1) {
-		//		for(i = 0 ; i < qntdElemento ; i++) {
-		//			lista.remover(lista.get(i).getValor());
-		//			System.out.println("Removido");
-		//		}
-		//		lista.adicionarFim(valorElemento);
-		//	} 
-	//	}
