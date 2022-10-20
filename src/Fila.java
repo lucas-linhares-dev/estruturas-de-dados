@@ -40,9 +40,8 @@ public class Fila<T> {
 		
 	}
 	
-	public void ordenar() {
+	public double encontrarMenor() {
 		Fila filaAux = new Fila<T>();
-		Fila filaAux2 = new Fila<T>();
 		double menor = this.get();
 		while(!this.isEmpty()) { // Achar o menor
 			double elemento = this.get();
@@ -52,14 +51,45 @@ public class Fila<T> {
 			filaAux.adicionar(this.get());
 			this.remover();
 		}
-		
-		
 		while(!filaAux.isEmpty()) { // Devolvi e zerei a auxiliar
 			this.adicionar(filaAux.get());
 			filaAux.remover();
 		}
-		
-		
+		return menor;
+	}
+	
+	public boolean eoMenor(double elemento) {
+		Fila filaAux = new Fila<T>();
+		double menor = elemento;
+		while(!this.isEmpty()) {
+			double elementoAtual = this.get();
+			if(elementoAtual < menor) {
+				return false;
+			}
+			filaAux.adicionar(this.get());
+			this.remover();
+		}
+		while(!filaAux.isEmpty()) { // Devolvi e zerei a auxiliar
+			this.adicionar(filaAux.get());
+			filaAux.remover();
+		}
+		return true;
+	}
+	
+	public void ordenar() {
+		Fila filaAux = new Fila<T>();
+		while(!this.isEmpty()) {
+			double elemento = this.get();
+			if(this.eoMenor(elemento)) {
+				filaAux.adicionar(elemento);
+				this.remover();
+			}
+		}
+		while(!filaAux.isEmpty()) { // Devolvi e zerei a auxiliar
+			this.adicionar(filaAux.get());
+			filaAux.remover();
+		}	
 		
 	}
+	
 }

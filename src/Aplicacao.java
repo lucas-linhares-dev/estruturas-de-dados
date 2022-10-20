@@ -2,22 +2,22 @@
 public class Aplicacao {
 
 	public static void main(String[] args) {
-		Pilha pilha = new Pilha<Double>();
+		Fila fila = new Fila();
 		
-		pilha.adicionar(2.0);
-		pilha.adicionar(3.0);
-		pilha.adicionar(4.0);
-		pilha.adicionar(5.0);
+	
+		fila.adicionar(4.0);
+		fila.adicionar(3.0);
+		fila.adicionar(2.0);
+		fila.adicionar(1.0);
+		
+		
+		System.out.println(fila.get());
+		fila.ordenar();
+		System.out.println(fila.get());
+		
 
-
-		Pilha pilha2 = pilha.clonar();
 		
-		pilha.remover();
-		pilha2.remover();
-		pilha2.remover();
-		
-		System.out.println(pilha.get());
-		System.out.println(pilha2.get());
+	
 
 	}
 
