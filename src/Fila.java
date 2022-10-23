@@ -1,10 +1,15 @@
 
 public class Fila<T> {
 	private ListaEncadeada lista;
+	private int tamanho;
 	
 
 	public Fila() {
 		this.lista = new ListaEncadeada();
+	}
+	
+	public int getTamanho() {
+		return this.lista.getTamanho();
 	}
 	
 	public void adicionar(Double valor) {
@@ -37,7 +42,17 @@ public class Fila<T> {
 	}
 	
 	public void inverter() {
+		Pilha pilhaAux = new Pilha<Double>();
 		
+		while(!this.isEmpty()) {
+			pilhaAux.adicionar(this.get());
+			this.remover();
+		}
+		
+		while(!pilhaAux.isEmpty()) {
+			this.adicionar(pilhaAux.get());
+			pilhaAux.remover();
+		}
 	}
 	
 	public double encontrarMenor() {
@@ -58,22 +73,14 @@ public class Fila<T> {
 		return menor;
 	}
 	
-	public boolean eoMenor(double elemento) {
-		Fila filaAux = new Fila<T>();
-		double menor = elemento;
-		while(!this.isEmpty()) {
-			double elementoAtual = this.get();
-			if(elementoAtual < menor) {
-				return false;
-			}
-			filaAux.adicionar(this.get());
-			this.remover();
+	public boolean eoMenor(double valor) {
+		if(valor == this.encontrarMenor()) {
+			return true;
 		}
-		while(!filaAux.isEmpty()) { // Devolvi e zerei a auxiliar
-			this.adicionar(filaAux.get());
-			filaAux.remover();
+		else {
+			return false;
 		}
-		return true;
+		
 	}
 	
 	public void ordenar() {
@@ -81,15 +88,18 @@ public class Fila<T> {
 		while(!this.isEmpty()) {
 			double elemento = this.get();
 			if(this.eoMenor(elemento)) {
-				filaAux.adicionar(elemento);
+				filaAux.adicionar(this.get());
+				this.remover();
+			}
+			else {
+				this.adicionar(this.get());
 				this.remover();
 			}
 		}
 		while(!filaAux.isEmpty()) { // Devolvi e zerei a auxiliar
 			this.adicionar(filaAux.get());
 			filaAux.remover();
-		}	
+		}
 		
 	}
-	
 }
